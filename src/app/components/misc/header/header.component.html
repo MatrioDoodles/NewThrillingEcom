@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <img src="../../../../assets/imgs/logo2.jpg" height="50px" width="150px">
+  <button mat-button routerLink="welcome">Acceuil</button>
+  <button mat-button routerLink="products">Nos Produits</button>
+  <button mat-button>A propos</button>
+  <button mat-button>Nous Contactez</button>
+  <span class="example-spacer"></span>
+  <button mat-icon-button style="margin-right: 20px" [matMenuTriggerFor]="menu">
+    <i matBadge="{{products.length}}" class="fa fa-shopping-cart fa-2x"></i>
+  </button>
+  <mat-menu #menu="matMenu" class="cartStyle">
+    <mat-list role="list">
+      <p *ngIf="!cart" class="text-center"> Le Panier est Vide</p>
+      <mat-list-item *ngFor="let product of products" role="listitem">
+        <button  mat-menu-item><img src="{{product.product.picture}}" height="50px"> {{product.product.label}} x {{product.quantity}}</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">
+        <button (click)="order()" class="btn btn-success" [disabled]="!cart" style="margin: 5px">
+        <i class="fa fa-shopping-cart"></i>Commander</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">
+        <button (click)="ClearCart()" class="btn btn-danger" style="margin: 5px">
+          <i class="fa fa-trash"></i>Vider le panier</button>
+      </mat-list-item>
+    </mat-list>
+
+
+
+  </mat-menu>
+    <input  placeholder="Rechercher un produit">
+    <button mat-icon-button>
+    <mat-icon>search</mat-icon>
+    </button>
+</mat-toolbar>

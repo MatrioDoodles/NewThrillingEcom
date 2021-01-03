@@ -1,0 +1,15 @@
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .cartStyle{
+    max-width: 300px;
+  }
+  ::ng-deep.mat-menu-panel {
+    max-width: none !important;
+    right: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }

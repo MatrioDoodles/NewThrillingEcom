@@ -1,0 +1,49 @@
+
+<mat-card class="searchBar">
+  <img src="../../../assets/imgs/logo.jpg" height="80px" style="margin-left: 40%; padding-bottom: 20px">
+  <button mat-icon-button (click)="search()" style="float: right; margin-top: 10px" >
+    <mat-icon>search</mat-icon>
+  </button>
+  <mat-form-field appearance="outline" style="float: right">
+    <mat-label>Rechercher</mat-label>
+    <input matInput [ngModel]="searchQuery" type="search" name="search">
+  </mat-form-field>
+</mat-card>
+<div class="categoriesDiv">
+  <mat-card>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>
+<div class="ProductsDiv">
+<div *ngFor="let product of Products" >
+<mat-card class="example-card col-3" style="margin:20px ">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{product.label}}</mat-card-title>
+    <mat-card-subtitle> Prix du produit : {{product.selling_price_HT}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{product.picture}}" height="140px">
+  <mat-card-content>
+    <p style="overflow: auto; height: 80px">
+      {{product.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="d-flex  justify-content-center">
+    <button (click)="qte.value && addToCart(product,qte.value)" class="btn btn-info" style="max-height: 50px; margin-top: 5px; margin-right: 5px">
+      <i class="fa fa-cart-plus"></i>
+      Ajouter panier
+    </button>
+    <mat-form-field appearance="outline" style="max-width: 90px">
+      <mat-label>Quantité</mat-label>
+    <input matInput #qte type="number" name="quantity" required>
+    </mat-form-field>
+  </mat-card-actions>
+</mat-card>
+</div>
+</div>

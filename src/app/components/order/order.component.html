@@ -1,0 +1,90 @@
+<div class="center-card">
+  <mat-card class="center-card container-lg border" >
+    <mat-horizontal-stepper linear="true" #stepper >
+      <!-- Step 1 -->
+      <mat-step [completed]="step1">
+        <form #orderForm="ngForm">
+          <ng-template matStepLabel>Renseigner vos Information</ng-template>
+          <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Nom et Prénom</mat-label>
+            <input matInput (change)="!orderForm.invalid && step1Completed()" [(ngModel)]="order.client_name" name="name" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Numéro de Téléphone</mat-label>
+            <input matInput (change)="!orderForm.invalid && step1Completed()" [(ngModel)]="order.client_tel" name="tel" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Adresse Email</mat-label>
+            <input matInput (change)="!orderForm.invalid && step1Completed()" [(ngModel)]="order.client_mail" name="mail" required>
+          </mat-form-field>
+          </div>
+          <div class="row">
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Adresse de Livraison</mat-label>
+            <input matInput (change)="!orderForm.invalid && step1Completed()" [(ngModel)]="order.client_adress" name="addresse" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col">
+            <mat-label>Ville</mat-label>
+            <input matInput (change)="!orderForm.invalid && step1Completed()" [(ngModel)]="order.city" name="ville" required>
+          </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperNext class="btn btn-success">Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+      <!-- Step 2 -->
+      <mat-step [completed]="step2" label="Choisir le mode de paiment">
+        Veuillez choisir le mode de paiement :
+        <br>
+        <mat-radio-group (change)="pod && step2Completed()" #pod aria-label="Select an option">
+          <mat-radio-button value="1"><i class="fa fa-money"></i> Paiement à la livraison</mat-radio-button>
+        </mat-radio-group>
+        <br>
+        <img src="../../../assets/imgs/pod.png" height="250px">
+        <div>
+          <button mat-button matStepperPrevious class="btn btn-warning" >Précedent</button>
+          <button mat-button matStepperNext class="btn btn-success">Suivant</button>
+        </div>
+      </mat-step>
+      <!-- Step 3 -->
+      <mat-step [completed]="step3" label="Verifier vos Information et vos produits">
+       <div class="row">
+         <div class="col">
+           <p class="row"> Nom et Prénom : {{order.client_name}}</p>
+           <p class="row"> Email         : {{order.client_mail}}</p>
+           <p class="row"> Adresse       : {{order.client_adress}}</p>
+           <p class="row"> Ville         : {{order.city}}</p>
+           <p class="row"> Téléphone     : {{order.client_tel}}</p>
+         </div>
+         <div class="col" style="overflow: auto">
+           <mat-list role="list">
+             <mat-list-item *ngFor="let product of products" role="listitem">
+               <button  mat-menu-item><img src="{{product.product.picture}}" height="50px"> {{product.product.label}} : Qté x {{product.quantity}}</button>
+             </mat-list-item>
+             <mat-divider></mat-divider>
+             <mat-list-item class="text-center">
+               {{total}} Dh TTC
+             </mat-list-item>
+
+           </mat-list>
+         </div>
+       </div>
+          <div>
+            <button mat-button matStepperPrevious class="btn btn-warning">Précedent</button>
+            <button mat-button class="btn btn-success" (click)="Order()" [hidden]="!hidden">Valider la commande</button>
+            <button mat-button matStepperNext [hidden]="hidden" class="btn btn-success">Suivant</button>
+          </div>
+      </mat-step>
+      <!-- Step 4 -->
+      <mat-step>
+        <ng-template matStepLabel>Finalisation de la commande</ng-template>
+        <p>Votre commande a été éffectué avec succès.</p>
+        <div>
+          <button mat-button routerLink="products">Términé</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card>
+</div>
