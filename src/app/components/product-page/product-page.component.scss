@@ -1,0 +1,42 @@
+.center-card{
+  position:absolute;
+  left:50%;
+  top:40%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 50%;
+  text-align:center;
+  margin: 0 auto;
+}
+.btn-color{
+  background: #007bff;
+  color: #fff;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.example-header-image {
+  background-size: cover;
+}
+
+.ProductsDiv{
+  margin-left: 15%;
+}
+.force_bottom_right{
+  position:absolute;
+  bottom:0;
+  right:10px;
+}
+.categoriesDiv{
+  margin-top: 1%;
+  margin-left: 10%;
+  //max-width: 10%;
+  float: left;
+}

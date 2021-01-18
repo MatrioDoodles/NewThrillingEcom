@@ -1,10 +1,11 @@
-#button-style{
-  padding-right: 150px;
-  padding-left: 150px;
-  vertical-align: middle;
-}
 #footer-style{
   background-color: #121315;
   color: white;
-  width: auto;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  //background-color: red;
+  //color: white;
+  text-align: center;
+  flex-grow: 0;
 }

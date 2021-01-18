@@ -32,6 +32,10 @@ export class ProductService {
     return this.httpClient
    .get<Product[]>(`${API_URL}/${ENTITY_URL}/GetAllProducts`);
   }
+  getAllProductsByLabel(label){
+    return this.httpClient
+      .get<Product[]>(`${API_URL}/${ENTITY_URL}/GetProductsByLabel/${label}`);
+  }
 
   getProductById(Productid){
     return this.httpClient

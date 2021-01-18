@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,6 +37,8 @@ import { MatBadgeModule } from "@angular/material/badge";
 import { MatDialogModule } from '@angular/material/dialog';
 import { OrderComponent } from './components/order/order.component';
 import { MatRadioModule } from "@angular/material/radio";
+import { AProposComponent } from './components/apropos/apropos.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { MatRadioModule } from "@angular/material/radio";
     CartComponent,
     ProductPageComponent,
     ContactUsComponent,
-    OrderComponent
+    OrderComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,8 @@ import { MatRadioModule } from "@angular/material/radio";
     MatListModule,
     MatBadgeModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

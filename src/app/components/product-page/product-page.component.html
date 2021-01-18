@@ -1,1 +1,33 @@
-<p>product-page works!</p>
+<mat-card class="center-card container-fluid">
+  <mat-card-header >
+    <h3 style="font-weight: bold" class="row">{{product.label}}</h3>
+    <h4 class="text-muted" style="margin-left: 20px">{{product.selling_price_HT}} DH TTC</h4>
+  </mat-card-header>
+  <mat-card-content class="row">
+    <div class="col container-fluid">
+<img src="{{product.picture}}" height="350px" style="float: left; overflow: auto">
+    </div>
+    <div  class="col">
+      <div class="row">
+        <h2 class="font-weight-bold text-muted col">Description</h2>
+      </div>
+      <div class="row">
+      {{product.description}}
+      </div>
+    </div>
+    <div class=" force_bottom_right">
+      <button (click)="qte.value && addToCart(product,qte.value)"  *ngIf="product.amount != 0 " class="btn btn-info" style="max-height: 50px; margin-bottom: 10px; margin-right: 5px">
+        <i class="fa fa-cart-plus"></i>
+        Ajouter panier
+      </button>
+      <button *ngIf="product.amount === 0 " class="btn btn-danger" style="max-height: 50px; margin-top: 5px; margin-right: 10px">
+        <i class="fa fa-times-circle"></i>
+        Stock Indisponible
+      </button>
+      <mat-form-field appearance="outline" style="max-width: 90px">
+        <mat-label>Quantité</mat-label>
+        <input matInput #qte type="number" name="quantity" required>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>
