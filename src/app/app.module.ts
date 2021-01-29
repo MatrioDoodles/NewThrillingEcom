@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +39,9 @@ import { OrderComponent } from './components/order/order.component';
 import { MatRadioModule } from "@angular/material/radio";
 import { AProposComponent } from './components/apropos/apropos.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {CarouselModule} from "primeng/carousel";
+import {ButtonModule} from "primeng/button";
+import {ProductService} from "./services/products/product.service";
 
 @NgModule({
   declarations: [
@@ -83,6 +86,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDialogModule,
     MatRadioModule,
     FlexLayoutModule,
+    CarouselModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

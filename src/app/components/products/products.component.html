@@ -32,7 +32,9 @@
     </p>
   </mat-card-content>
   <mat-card-actions class="d-flex  justify-content-center">
-      <button (click)="qte.value && addToCart(product,qte.value)" [disabled]="!qte.value" *ngIf="product.amount != 0 " class="btn btn-info" style="max-height: 50px; margin-top: 5px; margin-right: 5px">
+      <button (click)="qte.value && addToCart(product,qte.value)"
+              [disabled]="!qte.value" *ngIf="product.amount != 0 "
+              class="btn btn-info" style="max-height: 50px; margin-top: 5px; margin-right: 5px">
       <i class="fa fa-cart-plus"></i>
       Ajouter panier
     </button>

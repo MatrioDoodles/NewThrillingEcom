@@ -32,6 +32,11 @@ export class ProductService {
     return this.httpClient
    .get<Product[]>(`${API_URL}/${ENTITY_URL}/GetAllProducts`);
   }
+
+  GetRandomProducts(){
+    return this.httpClient
+      .get<Product[]>(`${API_URL}/${ENTITY_URL}/GetRandomProducts`);
+  }
   getAllProductsByLabel(label){
     return this.httpClient
       .get<Product[]>(`${API_URL}/${ENTITY_URL}/GetProductsByLabel/${label}`);

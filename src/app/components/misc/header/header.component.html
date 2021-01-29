@@ -1,22 +1,24 @@
 <div>
-  <mat-toolbar color="primary" class="container-fluid">
+  <mat-toolbar color="primary" class="container-fluid" >
     <div fxShow="true" fxHide.gt-sm="true">
       <button (click)="sidenav.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
     <img src="../../../../assets/imgs/logo2.jpg" height="50px" width="150px" class="img-fluid">
-    <div fxShow="true" fxHide.lt-md="true">
+    <div  fxShow="true" fxHide.lt-md="true" style="float: right">
+      <div style="float: left">
       <button mat-button routerLink="welcome">Acceuil</button>
       <button mat-button routerLink="products">Nos Produits</button>
       <button mat-button routerLink="aPropos">A propos</button>
       <button mat-button routerLink="contact">Nous Contactez</button>
       <a href="https://api.whatsapp.com/send?phone=+212650459315"><i class="fa fa-whatsapp fa-2x" style="color: greenyellow"></i></a>
-
+      </div>
+      <div style="margin-left: 50%">
       <button mat-icon-button style="margin-right: 20px" [matMenuTriggerFor]="menu">
         <i matBadge="{{products.length}}" class="fa fa-shopping-cart fa-2x"></i>
       </button>
-      <mat-menu #menu="matMenu" class="cartStyle">
+      <mat-menu  #menu="matMenu" class="cartStyle">
         <mat-list role="list">
           <p *ngIf="!cart" class="text-center"> Le Panier est Vide</p>
           <mat-list-item *ngFor="let product of products" role="listitem">
@@ -34,29 +36,52 @@
           </mat-list-item>
         </mat-list>
       </mat-menu>
-     <input  placeholder="Rechercher un produit">
+     <input placeholder="Rechercher un produit">
       <button mat-icon-button>
         <mat-icon>search</mat-icon>
       </button>
+      </div>
     </div>
   </mat-toolbar>
   <mat-sidenav-container fxFlexFill class="example-container">
 
     <mat-sidenav #sidenav fxLayout="column">
       <div fxLayout="column">
-
-        <button mat-button routerLink="welcome">Acceuil</button>
+        <mat-list>
+          <mat-list-item>
+        <button  mat-button routerLink="welcome">Acceuil</button>
+          </mat-list-item>
+          <mat-list-item>
         <button mat-button routerLink="products">Nos Produits</button>
+          </mat-list-item>
+          <mat-list-item>
         <button mat-button routerLink="aPropos">A propos</button>
+          </mat-list-item>
+          <mat-list-item>
         <button mat-button routerLink="contact">Nous Contactez</button>
-        <a href="https://api.whatsapp.com/send?phone=+212650459315"><i class="fa fa-whatsapp fa-2x" style="color: greenyellow"></i></a>
-        <a (click)="sidenav.toggle()" mat-button><i class="fa fa-times-circle"></i></a>
+          </mat-list-item>
+        <a (click)="sidenav.toggle()" mat-button><i class="fa fa-times-circle"></i> Fermer le Menu</a>
+        </mat-list>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>
       <div style="min-height: 74.5vh" class="main">
       <router-outlet></router-outlet>
-    </div></mat-sidenav-content>
+    </div>
+      <a href="https://api.whatsapp.com/send?phone=+212650459315" mat-fab fxShow="true" color="primary"  class="fixed-bottom"
+              style="position: fixed;
+              bottom: 7%;
+              left: 2%;">
+        <i class="fa fa-whatsapp fa-2x" style="color: greenyellow"></i>
+      </a>
+      <button mat-fab style="margin-right: 20px" [matMenuTriggerFor]="menu"
+              color="primary"
+              style="position: fixed;
+              bottom: 7%;
+              left: 85%;">
+        <i matBadge="{{products.length}}" class="fa fa-shopping-cart fa-2x"></i>
+      </button>
+    </mat-sidenav-content>
   </mat-sidenav-container>
 
 </div>
