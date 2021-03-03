@@ -9,6 +9,8 @@ export class Comment {
     public comment:string,
     public rating:number,
     public approuved:boolean,
+    public nom:string,
+    public dateCom:Date,
     public product:Product
   ) {
   }

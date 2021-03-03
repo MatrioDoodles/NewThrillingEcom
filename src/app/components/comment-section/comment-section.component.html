@@ -1,0 +1,43 @@
+<!-- Main Body -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 col-md-6 col-12 pb-4">
+        <div *ngFor="let com of comments" class="comment mt-4 text-justify float-left" style="width: 100%">
+          <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40">
+          <h4>   {{com.nom}}</h4> <span>{{com.dateCom | date}}</span> <span>
+          <p class="review-rating" *ngIf="com.rating">
+        <!-- 1 star  -->
+        <i [class]="(com.rating == 0) ? 'far fa-star' : (com.rating > 0 && com.rating < 1) ? 'fas fa-star-half-alt' : 'fas fa-star'"></i>
+
+            <!-- 2 star  -->
+        <i [class]="(com.rating > 1 && com.rating < 2) ? 'fas fa-star-half-alt' : (com.rating >= 2) ? 'fas fa-star' : 'far fa-star'"></i>
+
+            <!-- 3 star  -->
+        <i [class]="(com.rating > 2 && com.rating < 3) ? 'fas fa-star-half-alt' : (com.rating >= 3) ? 'fas fa-star' : 'far fa-star'"></i>
+
+            <!-- 4 star  -->
+        <i [class]="(com.rating > 3 && com.rating < 4) ? 'fas fa-star-half-alt' : (com.rating >= 4) ? 'fas fa-star' : 'far fa-star'"></i>
+
+            <!-- 5 star  -->
+        <i [class]="(com.rating > 4 && com.rating < 5) ? 'fas fa-star-half-alt' : (com.rating >= 5) ? 'fas fa-star' : 'far fa-star'"></i>
+      </p>
+        </span><br>
+          <p>{{com.comment}}</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4" style="padding-top: 45px">
+        <form id="algin-form">
+          <div class="form-group">
+            <h4>Leave a comment</h4>
+            <div class="form-group"> <label for="rating">Note</label> <input type="text" name="name" id="rating" class="form-control"> </div>
+            <div class="form-group"> <label for="name">Nom</label> <input type="text" name="name" id="fullname" class="form-control"> </div>
+            <label for="message">Commentaire</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+          </div>
+          <div class="form-group"> <button type="button" id="post" class="btn">Post Comment</button> </div>
+        </form>
+      </div>
+        </div>
+  </div>
+</section>

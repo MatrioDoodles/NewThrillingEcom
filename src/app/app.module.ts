@@ -39,9 +39,10 @@ import { OrderComponent } from './components/order/order.component';
 import { MatRadioModule } from "@angular/material/radio";
 import { AProposComponent } from './components/apropos/apropos.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {CarouselModule} from "primeng/carousel";
-import {ButtonModule} from "primeng/button";
-import {ProductService} from "./services/products/product.service";
+import { CarouselModule } from "primeng/carousel";
+import { ButtonModule } from "primeng/button";
+import { CardModule } from 'primeng/card';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {ProductService} from "./services/products/product.service";
     ProductPageComponent,
     ContactUsComponent,
     OrderComponent,
-    AProposComponent
+    AProposComponent,
+    CommentSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +90,7 @@ import {ProductService} from "./services/products/product.service";
     FlexLayoutModule,
     CarouselModule,
     ButtonModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

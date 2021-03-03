@@ -12,12 +12,14 @@ import {ProductsWithQTE} from "../../services/orders/order.service";
 })
 export class ProductPageComponent implements OnInit {
 product:Product;
+productId: any;
   constructor(private productService:ProductService,
               private router:ActivatedRoute,
               private _cartService:CartService,) { }
 
   ngOnInit(): void {
-    this.productService.getProductById(this.router.snapshot.params['product']).subscribe(
+    this.productId = this.router.snapshot.params['product'];
+    this.productService.getProductById(this.productId).subscribe(
       (response:Product)=>{
         setTimeout(()=>{
           this.product=response;

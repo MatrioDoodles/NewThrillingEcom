@@ -1,12 +1,15 @@
 .center-card{
-  position:absolute;
-  left:50%;
-  top:40%;
-  transform: translate(-50%, -50%);
   width: 80%;
-  height: 50%;
+  //height: 50%;
   text-align:center;
   margin: 0 auto;
+}
+
+.center-card-mobile{
+  width: 80%;
+  //height: 50%;
+  text-align:center;
+  margin: 3% 5% 15% 5%;
 }
 .btn-color{
   background: #007bff;

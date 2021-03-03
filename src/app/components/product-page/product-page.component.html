@@ -1,22 +1,50 @@
-<mat-card class="center-card container-fluid">
+<div fxHide fxShow.gt-md class="ui-g" fxFlex style="width: 80%; margin: 5%">
+<mat-card>
   <mat-card-header >
-    <h3 style="font-weight: bold" class="row">{{product.label}}</h3>
+    <h3 style="font-weight: bold" fxLayout="row">{{product.label}}</h3>
     <h4 class="text-muted" style="margin-left: 20px">{{product.selling_price_HT}} DH TTC</h4>
   </mat-card-header>
-  <mat-card-content class="row">
-    <div class="col container-fluid">
-<img src="{{product.picture}}" height="350px" style="float: left; overflow: auto">
-    </div>
-    <div  class="col">
-      <div class="row">
+  <mat-card-content fxLayout="row">
+<div class="col-md-12 col-xl-6">
+<img src="{{product.picture}}" class="img-fluid"  style="padding-left: 2%">
+</div>
+    <div class="col-sm-12 col-xl-6">
+      <div fxLayout="row">
         <h2 class="font-weight-bold text-muted col">Description</h2>
       </div>
-      <div class="row">
-      {{product.description}}
+      <div fxLayout="row" style="overflow: auto">
+        <p>{{product.description}}</p>
+      </div>
+      <div fxLayout="row" class=" force_bottom_right">
+        <button (click)="qte.value && addToCart(product,qte.value)"
+                *ngIf="product.amount != 0 " class="btn btn-info" style="max-height: 50px; margin-bottom: 10px; margin-right: 5px">
+          <i class="fa fa-cart-plus"></i>
+          Ajouter panier
+        </button>
+        <button *ngIf="product.amount === 0 " class="btn btn-danger" style="max-height: 50px; margin-top: 5px; margin-right: 10px">
+          <i class="fa fa-times-circle"></i>
+          Stock Indisponible
+        </button>
+        <mat-form-field appearance="outline" style="max-width: 90px">
+          <mat-label>Quantité</mat-label>
+          <input matInput #qte type="number" name="quantity" required>
+        </mat-form-field>
       </div>
     </div>
-    <div class=" force_bottom_right">
-      <button (click)="qte.value && addToCart(product,qte.value)"  *ngIf="product.amount != 0 " class="btn btn-info" style="max-height: 50px; margin-bottom: 10px; margin-right: 5px">
+  </mat-card-content>
+  <app-comment-section [productID]="productId" [product]="product"></app-comment-section>
+</mat-card>
+</div>
+<div fxShow fxHide.gt-md class="center-card-mobile">
+
+  <p-card header="{{product.label}}" subheader="{{product.selling_price_HT}} DH TTC" [style]="{width: '360px'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="{{product.picture}}">
+    </ng-template>
+    <p>{{product.description}}</p>
+    <ng-template pTemplate="footer">
+      <button (click)="qte.value && addToCart(product,qte.value)"
+              *ngIf="product.amount != 0 " class="btn btn-info" style="max-height: 50px; margin-bottom: 10px; margin-right: 5px">
         <i class="fa fa-cart-plus"></i>
         Ajouter panier
       </button>
@@ -28,6 +56,8 @@
         <mat-label>Quantité</mat-label>
         <input matInput #qte type="number" name="quantity" required>
       </mat-form-field>
-    </div>
-  </mat-card-content>
-</mat-card>
+    </ng-template>
+  </p-card>
+
+
+</div>

@@ -29,7 +29,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var today = new Date();
+    const today = new Date();
     this.orderPP = new OrderProduct(null,null,null,null);
     this.order = new Order(null,'',null,'À confirmer','','','','','','Pas encore payé',null,null,
       null,'',false,false,today,null);

@@ -27,6 +27,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
 
     this.RetrieveAllProducts();
+    this.RetrieveAllCategories();
   }
 
   RetrieveAllCategories()
@@ -84,8 +85,8 @@ export class ProductsComponent implements OnInit {
         }
       )
     }
-    addToCart(prod:Product,qte)
+    addToCart(prod:Product)
     {
-        this._cartService.getselectedproducts(new ProductsWithQTE(qte,prod));
+        this._cartService.getselectedproducts(new ProductsWithQTE(1,prod));
     }
 }

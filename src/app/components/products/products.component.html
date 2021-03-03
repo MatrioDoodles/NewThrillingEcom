@@ -1,6 +1,6 @@
 
-<mat-card class="align-content-center" fxLayout="row" fxLayoutAlign="space-around center" fxflex="80" fxflex.gt-sm="100">
-  <img src="../../../assets/imgs/logo.jpg" height="80px" width="190px" class="d-flex align-content-center" >
+<mat-card class="align-content-center" fxLayout="row" fxLayoutAlign="space-around center"  fxflex="80" fxflex.gt-sm="100">
+  <img fxHide.lt-md="true" src="../../../assets/imgs/logo.jpg" height="80px" width="190px" class="d-flex align-content-center" >
   <mat-form-field appearance="outline" class="">
     <mat-label>Rechercher</mat-label>
     <input matInput type="search" name="search" (keyup)="search($event)">
@@ -21,32 +21,37 @@
 <div *ngFor="let product of Products" >
 <mat-card class="example-card col-3" style="margin:20px "  > <!-- routerLink="/productDetails/{{product.id}}" -->
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image" ></div>
+    <div mat-card-avatar class="example-header-image"  ></div>
     <mat-card-title>{{product.label}}</mat-card-title>
     <mat-card-subtitle> Prix du produit : {{product.selling_price_HT}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image  src="{{product.picture}}" height="140px">
+  <img mat-card-image src="{{product.picture}}" height="140px">
   <mat-card-content>
     <p style="overflow: auto; height: 80px">
       {{product.description}}
     </p>
   </mat-card-content>
   <mat-card-actions class="d-flex  justify-content-center">
-      <button (click)="qte.value && addToCart(product,qte.value)"
-              [disabled]="!qte.value" *ngIf="product.amount != 0 "
+      <button (click)="addToCart(product)"
+              *ngIf="product.amount != 0 "
               class="btn btn-info" style="max-height: 50px; margin-top: 5px; margin-right: 5px">
       <i class="fa fa-cart-plus"></i>
       Ajouter panier
     </button>
-    <button *ngIf="product.amount === 0 " class="btn btn-danger" style="max-height: 50px; margin-top: 5px; margin-right: 5px">
+    <button *ngIf="product.amount === 0 " [disabled]="true" class="btn btn-danger" style="max-height: 50px; margin-top: 5px; margin-right: 5px">
       <i class="fa fa-times-circle"></i>
       Stock Indisponible
     </button>
-    <mat-form-field appearance="outline" style="max-width: 90px">
+    <button routerLink="/productDetails/{{product.id}}" class="btn btn-success" style="max-height: 50px; margin-top: 5px; margin-right: 5px">
+      <i class="fa fa-plus"></i>
+      Details
+    </button>
+    <!--mat-form-field appearance="outline" style="max-width: 90px">
       <mat-label>Quantité</mat-label>
     <input matInput #qte type="number" name="quantity" required>
-    </mat-form-field>
+    </mat-form-field-->
   </mat-card-actions>
 </mat-card>
 </div>
 </div>
+

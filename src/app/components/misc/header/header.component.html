@@ -49,18 +49,24 @@
       <div fxLayout="column">
         <mat-list>
           <mat-list-item>
-        <button  mat-button routerLink="welcome">Acceuil</button>
+        <button (click)="sidenav.toggle()" mat-button routerLink="welcome">Acceuil</button>
           </mat-list-item>
+          <mat-divider></mat-divider>
           <mat-list-item>
-        <button mat-button routerLink="products">Nos Produits</button>
+        <button (click)="sidenav.toggle()" mat-button routerLink="products">Nos Produits</button>
           </mat-list-item>
+          <mat-divider></mat-divider>
           <mat-list-item>
-        <button mat-button routerLink="aPropos">A propos</button>
+        <button (click)="sidenav.toggle()" mat-button routerLink="aPropos">A propos</button>
           </mat-list-item>
+          <mat-divider></mat-divider>
           <mat-list-item>
-        <button mat-button routerLink="contact">Nous Contactez</button>
+        <button (click)="sidenav.toggle()" mat-button routerLink="contact">Nous Contactez</button>
           </mat-list-item>
-        <a (click)="sidenav.toggle()" mat-button><i class="fa fa-times-circle"></i> Fermer le Menu</a>
+          <mat-divider></mat-divider>
+          <!--mat-list-item>
+        <a (click)="sidenav.toggle()" mat-fab color="primary" class="fixed-bottom"><i class="fa fa-times-circle"></i></a>
+          </mat-list-item-->
         </mat-list>
       </div>
     </mat-sidenav>
@@ -68,13 +74,19 @@
       <div style="min-height: 74.5vh" class="main">
       <router-outlet></router-outlet>
     </div>
-      <a href="https://api.whatsapp.com/send?phone=+212650459315" mat-fab fxShow="true" color="primary"  class="fixed-bottom"
+      <a href="https://api.whatsapp.com/send?phone=+212650459315" mat-fab fxShow fxHide.gt-md color="primary"  class="fixed-bottom"
               style="position: fixed;
               bottom: 7%;
               left: 2%;">
         <i class="fa fa-whatsapp fa-2x" style="color: greenyellow"></i>
       </a>
-      <button mat-fab style="margin-right: 20px" [matMenuTriggerFor]="menu"
+      <a href="https://api.whatsapp.com/send?phone=+212650459315" mat-fab fxHide fxShow.gt-md color="primary"  class="fixed-bottom"
+         style="position: fixed;
+              bottom: 20%;
+              left: 2%;">
+        <i class="fa fa-whatsapp fa-2x" style="color: greenyellow"></i>
+      </a>
+      <button fxShow="true" fxHide.gt-sm="true" mat-fab style="margin-right: 20px" [matMenuTriggerFor]="menu"
               color="primary"
               style="position: fixed;
               bottom: 7%;
