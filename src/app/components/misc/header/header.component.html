@@ -1,5 +1,5 @@
 <div>
-  <mat-toolbar style="background-color: #121315" class="container-fluid" >
+  <mat-toolbar style="background-color: #121315; color: white" class="container-fluid" >
     <div fxShow="true" fxHide.gt-sm="true">
       <button (click)="sidenav.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
@@ -80,17 +80,23 @@
               left: 2%;">
         <i class="fa fa-whatsapp fa-2x" style="color: greenyellow"></i>
       </a>
-      <a href="https://api.whatsapp.com/send?phone=+212650459315" mat-fab fxHide fxShow.gt-md color="primary"  class="fixed-bottom"
+      <a href="https://api.whatsapp.com/send?phone=+212650459315"
+         mat-fab
+         fxHide
+         fxShow.gt-md
+         class="fixed-bottom"
          style="position: fixed;
               bottom: 20%;
-              left: 2%;">
+              left: 2%;
+              background-color: #121315;">
         <i class="fa fa-whatsapp fa-2x" style="color: greenyellow"></i>
       </a>
       <button fxShow="true" fxHide.gt-sm="true" mat-fab style="margin-right: 20px" [matMenuTriggerFor]="menu"
-              color="primary"
               style="position: fixed;
               bottom: 7%;
-              left: 85%;">
+              left: 85%;
+              background-color: #121315;
+              ">
         <i matBadge="{{products.length}}" class="fa fa-shopping-cart fa-2x"></i>
       </button>
     </mat-sidenav-content>
