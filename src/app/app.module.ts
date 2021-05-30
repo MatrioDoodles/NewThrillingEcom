@@ -43,6 +43,9 @@ import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";
 import { CardModule } from 'primeng/card';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { Landingpage1Component } from './components/landingPages/landingpage1/landingpage1.component';
+import { Landingpage2Component } from './components/landingPages/landingpage2/landingpage2.component';
+import { Landingpage3Component } from './components/landingPages/landingpage3/landingpage3.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
     ContactUsComponent,
     OrderComponent,
     AProposComponent,
-    CommentSectionComponent
+    CommentSectionComponent,
+    Landingpage1Component,
+    Landingpage2Component,
+    Landingpage3Component
   ],
   imports: [
     BrowserModule,
