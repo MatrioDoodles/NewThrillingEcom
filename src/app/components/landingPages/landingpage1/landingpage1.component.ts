@@ -63,7 +63,6 @@ export class Landingpage1Component implements OnInit {
           console.log(this.OrdertoSub)
           this.OrderService.order(this.OrdertoSub).subscribe(
             response => {
-
         })
       }
     )
