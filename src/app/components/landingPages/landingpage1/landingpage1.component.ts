@@ -13,6 +13,9 @@ import {Choice} from "./choice";
 
 export class Landingpage1Component implements OnInit {
 
+  phoneNumber: string[] = [
+    "",""
+  ]
   order:Order;
   orderResp:Order;
   products:ProductsWithQTE[];
@@ -67,5 +70,8 @@ export class Landingpage1Component implements OnInit {
       }
     )
   })
+}
+scrollToEnd(){
+  document.getElementById('end').scrollIntoView();
 }
 }
