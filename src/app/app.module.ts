@@ -46,6 +46,8 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
 import { Landingpage1Component } from './components/landingPages/landingpage1/landingpage1.component';
 import { Landingpage2Component } from './components/landingPages/landingpage2/landingpage2.component';
 import { Landingpage3Component } from './components/landingPages/landingpage3/landingpage3.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -97,6 +99,8 @@ import { Landingpage3Component } from './components/landingPages/landingpage3/la
     CarouselModule,
     ButtonModule,
     CardModule,
+    ConfirmDialogModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

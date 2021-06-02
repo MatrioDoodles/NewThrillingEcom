@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import {Order, OrderProduct, OrderService, ProductsWithQTE} from "../../../services/orders/order.service";
 import {Product, ProductService} from "../../../services/products/product.service";
 import {Choice} from "./choice";
@@ -8,7 +9,8 @@ import {Choice} from "./choice";
   selector: 'app-landingpage1',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './landingpage1.component.html',
-  styleUrls: ['./landingpage1.component.scss']
+  styleUrls: ['./landingpage1.component.scss'],
+  providers: [ConfirmationService,MessageService]
 })
 
 export class Landingpage1Component implements OnInit {
@@ -35,7 +37,9 @@ export class Landingpage1Component implements OnInit {
     {val:3,select:'أريد ثلاثة علب (800 درهم)'}
   ];
   constructor(private OrderService:OrderService,
-              private productService:ProductService) { }
+              private productService:ProductService,
+              private confirmationService: ConfirmationService,
+              private messageService:MessageService,) { }
 
   ngOnInit(): void {
     this.productService.getProductById(3).subscribe(
@@ -50,7 +54,12 @@ export class Landingpage1Component implements OnInit {
   }
 
   command(){
-    this.order.total = this.product.selling_price_HT * this.Qte;
+
+    
+    this.confirmationService.confirm({
+      message: 'هل تريد حقًا أن تطلب ؟',
+     accept : () => {
+          this.order.total = this.product.selling_price_HT * this.Qte;
     this.order.total_to_pay = this.product.selling_price_HT * this.Qte;
     this.OrderService.AddOrder(this.order).subscribe(
       (response:Order) => {
@@ -63,13 +72,17 @@ export class Landingpage1Component implements OnInit {
             this.orderPP.quantity = this.Qte;
             this.OrdertoSub.push(this.orderPP)
 
-          console.log(this.OrdertoSub)
+        
           this.OrderService.order(this.OrdertoSub).subscribe(
             response => {
+              this.messageService.add({severity:'success', summary: 'الطلبية', detail: 'اكتمل الطلب بنجاح'});
         })
       }
     )
   })
+     }
+  });
+ 
 }
 scrollToEnd(){
   document.getElementById('end').scrollIntoView();
