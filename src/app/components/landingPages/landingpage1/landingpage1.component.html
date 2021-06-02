@@ -68,7 +68,7 @@
   <link rel="alternate" type="application/json+oembed" href="http://localhost/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Flanding-page%2F" />
   <link rel="alternate" type="text/xml+oembed" href="http://localhost/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Flanding-page%2F&#038;format=xml" />
   <style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /></head>
-<body class="page-template page-template-elementor_canvas page page-id-40 wp-embed-responsive is-light-theme no-js singular elementor-default elementor-template-canvas elementor-kit-7 elementor-page elementor-page-40" style="width: max-content;">
+<body class="page-template page-template-elementor_canvas page page-id-40 wp-embed-responsive is-light-theme no-js singular elementor-default elementor-template-canvas elementor-kit-7 elementor-page elementor-page-40">
 <div data-elementor-type="wp-page" data-elementor-id="40" class="elementor elementor-40" data-elementor-settings="[]">
   <div class="elementor-section-wrap">
     <section class="elementor-section elementor-top-section elementor-element elementor-element-d2b1ad3 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="d2b1ad3" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -475,17 +475,17 @@
           <div class="elementor-widget-wrap elementor-column" style="border: solid;">
             <form id="end" #orderForm="ngForm">
 
-              <mat-form-field appearance="outline" style="width: 500px;">
+              <mat-form-field appearance="outline" style="width: 400px;">
                 <mat-label>الكمية</mat-label>
                 <mat-select  [(ngModel)]="Qte" name="choice" required>
                   <mat-option *ngFor="let val of choice"  [value]="val.val">{{val.select}}</mat-option>
                 </mat-select>
               </mat-form-field><br>
-                <mat-form-field appearance="outline" style="width: 500px;">
+                <mat-form-field appearance="outline" style="width: 400px;">
                   <mat-label>الإسم</mat-label>
                   <input matInput [(ngModel)]="order.client_name" name="name" required>
                 </mat-form-field><br>
-                <mat-form-field appearance="outline" style="width: 500px;">
+                <mat-form-field appearance="outline" style="width: 400px;">
                   <mat-label>رقم الهاتف</mat-label>
                   <input matInput  [(ngModel)]="order.client_tel" name="tel" required>
                 </mat-form-field><br>
@@ -499,7 +499,7 @@
                   <input matInput  [(ngModel)]="order.client_adress" name="addresse" required>
                 </mat-form-field><br-->
 
-                <mat-form-field appearance="outline" style="width: 500px;">
+                <mat-form-field appearance="outline" style="width: 400px;">
                   <mat-label>المدينة</mat-label>
                   <mat-select  [(ngModel)]="order.city" name="Category" required>
                     <mat-option *ngFor="let val of villes"  [value]="val">{{val}}</mat-option>
