@@ -49,6 +49,7 @@ import { Landingpage3Component } from './components/landingPages/landingpage3/la
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ToastModule} from 'primeng/toast';
 import { ThankYouPopupComponent } from './components/misc/thank-you-popup/thank-you-popup.component';
+import {ProgressSpinnerModule} from "primeng/progressspinner";
 
 @NgModule({
   declarations: [
@@ -103,6 +104,8 @@ import { ThankYouPopupComponent } from './components/misc/thank-you-popup/thank-
     CardModule,
     ConfirmDialogModule,
     ToastModule,
+    ProgressSpinnerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

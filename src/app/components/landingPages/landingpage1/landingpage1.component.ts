@@ -3,6 +3,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import {Order, OrderProduct, OrderService, ProductsWithQTE} from "../../../services/orders/order.service";
 import {Product, ProductService} from "../../../services/products/product.service";
 import {Choice} from "./choice";
+import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
+import {ThankYouPopupComponent} from "../../misc/thank-you-popup/thank-you-popup.component";
+import set = Reflect.set;
 
 
 @Component({
@@ -10,7 +13,7 @@ import {Choice} from "./choice";
   encapsulation: ViewEncapsulation.None,
   templateUrl: './landingpage1.component.html',
   styleUrls: ['./landingpage1.component.scss'],
-  providers: [ConfirmationService,MessageService]
+  providers: [ConfirmationService,MessageService,DialogService]
 })
 
 export class Landingpage1Component implements OnInit {
@@ -23,6 +26,7 @@ export class Landingpage1Component implements OnInit {
   products:ProductsWithQTE[];
   OrdertoSub:OrderProduct[]=[];
   product:Product;
+  showloader=false
   Qte:number;
   orderPP:OrderProduct;
   villes: string[] =  [
@@ -39,7 +43,10 @@ export class Landingpage1Component implements OnInit {
   constructor(private OrderService:OrderService,
               private productService:ProductService,
               private confirmationService: ConfirmationService,
-              private messageService:MessageService,) { }
+              private messageService:MessageService,
+              private dialogService: DialogService) { }
+
+  ref: DynamicDialogRef;
 
   ngOnInit(): void {
     this.productService.getProductById(3).subscribe(
@@ -54,11 +61,7 @@ export class Landingpage1Component implements OnInit {
   }
 
   command(){
-
-    
-    this.confirmationService.confirm({
-      message: 'هل تريد حقًا أن تطلب ؟',
-     accept : () => {
+this.showloader = true
           this.order.total = this.product.selling_price_HT * this.Qte;
     this.order.total_to_pay = this.product.selling_price_HT * this.Qte;
     this.OrderService.AddOrder(this.order).subscribe(
@@ -72,17 +75,20 @@ export class Landingpage1Component implements OnInit {
             this.orderPP.quantity = this.Qte;
             this.OrdertoSub.push(this.orderPP)
 
-        
+
           this.OrderService.order(this.OrdertoSub).subscribe(
-            response => {
-              this.messageService.add({severity:'success', summary: 'الطلبية', detail: 'اكتمل الطلب بنجاح'});
-        })
-      }
+            data => {
+              this.showloader = false
+             setTimeout(() => {this.ref = this.dialogService.open(ThankYouPopupComponent, {
+               header: 'تم إكمال الطلب بنجاح',
+               width: '80%',
+             });},1000)
+            }
     )
   })
-     }
+
   });
- 
+
 }
 scrollToEnd(){
   document.getElementById('end').scrollIntoView();

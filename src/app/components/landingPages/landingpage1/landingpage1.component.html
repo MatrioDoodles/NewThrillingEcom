@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <head>
+  <div *ngIf="showloader" class="dimPage">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
   <meta charset="UTF-8">
   <title>Landing Page &#8211; NewThrilling</title>
   <meta name='robots' content='max-image-preview:large' />
@@ -313,7 +316,7 @@
           <div class="elementor-widget-wrap elementor-element-populated">
             <div class="elementor-element elementor-element-8f30771 elementor-widget elementor-widget-heading" data-id="8f30771" data-element_type="widget" data-widget_type="heading.default">
               <div class="elementor-widget-container">
-                <h2 class="elementor-heading-title elementor-size-default"><h1 class="elementor-heading-title elementor-size-xxl" style="border: 0px; font-weight: 700; outline: 0px; vertical-align: baseline; color: rgb(253, 253, 253); line-height: 1.2; font-family: Montserrat, sans-serif; text-transform: uppercase; letter-spacing: normal; text-align: center; white-space: normal; background-color: rgb(5, 5, 5);">عند شراء علبتين من<br>TITANESQUE<br>نهديك علبة أخرى مجانا</h1></h2>		</div>
+                <h2 class="elementor-heading-title elementor-size-default"><h1 class="elementor-heading-title elementor-size-xl" style="border: 0px; font-weight: 700; outline: 0px; vertical-align: baseline; color: rgb(253, 253, 253); line-height: 1.2; font-family: Montserrat, sans-serif; text-transform: uppercase; letter-spacing: normal; text-align: center; white-space: normal; background-color: rgb(5, 5, 5);">عند شراء علبتين من<br>TITANESQUE<br>نهديك علبة أخرى مجانا</h1></h2>		</div>
             </div>
             <div class="elementor-element elementor-element-f4581a1 elementor-widget elementor-widget-image" data-id="f4581a1" data-element_type="widget" data-widget_type="image.default">
               <div class="elementor-widget-container">
@@ -475,17 +478,17 @@
           <div class="elementor-widget-wrap elementor-column" style="border: solid;">
             <form id="end" #orderForm="ngForm">
 
-              <mat-form-field appearance="outline" style="width: 400px;">
+              <mat-form-field appearance="outline" style="width: 360px;">
                 <mat-label>الكمية</mat-label>
                 <mat-select  [(ngModel)]="Qte" name="choice" required>
                   <mat-option *ngFor="let val of choice"  [value]="val.val">{{val.select}}</mat-option>
                 </mat-select>
               </mat-form-field><br>
-                <mat-form-field appearance="outline" style="width: 400px;">
+                <mat-form-field appearance="outline" style="width: 360px;">
                   <mat-label>الإسم</mat-label>
                   <input matInput [(ngModel)]="order.client_name" name="name" required>
                 </mat-form-field><br>
-                <mat-form-field appearance="outline" style="width: 400px;">
+                <mat-form-field appearance="outline" style="width: 360px;">
                   <mat-label>رقم الهاتف</mat-label>
                   <input matInput  [(ngModel)]="order.client_tel" name="tel" required>
                 </mat-form-field><br>
@@ -499,7 +502,7 @@
                   <input matInput  [(ngModel)]="order.client_adress" name="addresse" required>
                 </mat-form-field><br-->
 
-                <mat-form-field appearance="outline" style="width: 400px;">
+                <mat-form-field appearance="outline" style="width: 360px;">
                   <mat-label>المدينة</mat-label>
                   <mat-select  [(ngModel)]="order.city" name="Category" required>
                     <mat-option *ngFor="let val of villes"  [value]="val">{{val}}</mat-option>
