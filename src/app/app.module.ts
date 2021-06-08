@@ -48,6 +48,7 @@ import { Landingpage2Component } from './components/landingPages/landingpage2/la
 import { Landingpage3Component } from './components/landingPages/landingpage3/landingpage3.component';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ToastModule} from 'primeng/toast';
+import { ThankYouPopupComponent } from './components/misc/thank-you-popup/thank-you-popup.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {ToastModule} from 'primeng/toast';
     CommentSectionComponent,
     Landingpage1Component,
     Landingpage2Component,
-    Landingpage3Component
+    Landingpage3Component,
+    ThankYouPopupComponent
   ],
   imports: [
     BrowserModule,
