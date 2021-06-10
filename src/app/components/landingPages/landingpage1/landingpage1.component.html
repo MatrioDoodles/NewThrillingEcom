@@ -2,7 +2,11 @@
 
 <head>
   <div *ngIf="showloader" class="dimPage">
-    <p-progressSpinner></p-progressSpinner>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status" >
+        <span class="sr-only" id="loading"></span>
+      </div>
+    </div>
   </div>
   <meta charset="UTF-8">
   <title>Landing Page &#8211; NewThrilling</title>
@@ -10,10 +14,10 @@
   <link rel='dns-prefetch' href='//s.w.org' />
   <link rel="alternate" type="application/rss+xml" title="NewThrilling &raquo; Flux" href="http://localhost/wordpress/feed/" />
   <link rel="alternate" type="application/rss+xml" title="NewThrilling &raquo; Flux des commentaires" href="http://localhost/wordpress/comments/feed/" />
-  <script>
+  <!--script>
     window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/../../../../assets/LandingPagesAssets/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/../../../../assets/LandingPagesAssets/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.2"}};
     !function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
-  </script>
+  </script-->
   <style>
     img.wp-smiley,
     img.emoji {
@@ -48,7 +52,7 @@
   <style id='elementor-frontend-inline-css'>
     @font-face{font-family:eicons;src:url(http://localhost/wordpress/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0);src:url(http://localhost/wordpress/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0#iefix) format("embedded-opentype"),url(http://localhost/wordpress/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.10.0) format("woff2"),url(http://localhost/wordpress/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.10.0) format("woff"),url(http://localhost/wordpress/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.10.0) format("truetype"),url(http://localhost/wordpress/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg?5.10.0#eicon) format("svg");font-weight:400;font-style:normal}
   </style>
-  <script>
+  <!--script>
     /* <![CDATA[ */
     var rcewpp = {
       "ajax_url":"http://localhost/wordpress/wp-admin/admin-ajax.php",
@@ -56,7 +60,7 @@
       "home_url": "http://localhost/wordpress"
     };
     /* ]]\> */
-  </script>
+  </script-->
   <script src='../../../../assets/LandingPagesAssets/js/jquery.min.js' id='jquery-core-js'></script>
   <script src='../../../../assets/LandingPagesAssets/js/jquery-migrate.min.js' id='jquery-migrate-js'></script>
   <script id='chaty-front-end-js-extra'>
@@ -476,38 +480,61 @@
       <div class="elementor-container elementor-column-gap-default">
         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-49d38a7" data-id="49d38a7" data-element_type="column">
           <div class="elementor-widget-wrap elementor-column" style="border: solid;">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-08191c5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="08191c5" data-element_type="section">
+              <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8a16889" data-id="8a16889" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-element-43dce29 elementor-align-center elementor-widget elementor-widget-button" data-id="43dce29" data-element_type="widget" data-widget_type="button.default">
+                      <div class="alert alert-warning" *ngIf="orderForm.dirty && orderForm.invalid">يرجى ملء جميع المعلومات</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </section>
             <form id="end" #orderForm="ngForm">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-08191c5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="08191c5" data-element_type="section">
+              <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8a16889" data-id="8a16889" data-element_type="column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-element-43dce29 elementor-align-center elementor-widget elementor-widget-button" data-id="43dce29" data-element_type="widget" data-widget_type="button.default">
+                      <mat-form-field appearance="outline" style="width: 360px;">
+                        <mat-label>الكمية</mat-label>
+                        <mat-select  [(ngModel)]="Qte" name="choice" required>
+                          <mat-option *ngFor="let val of choice"  [value]="val.val">{{val.select}}</mat-option>
+                        </mat-select>
+                      </mat-form-field><br>
+                      <mat-form-field appearance="outline" style="width: 360px;">
+                        <mat-label>الإسم</mat-label>
+                        <input matInput [(ngModel)]="order.client_name" name="name" required>
+                      </mat-form-field><br>
+                      <mat-form-field appearance="outline" style="width: 360px;">
+                        <mat-label>رقم الهاتف</mat-label>
+                        <input matInput  [(ngModel)]="order.client_tel" name="tel" required>
+                      </mat-form-field><br>
+                      <!--mat-form-field appearance="outline" style="width: 500px;">
+                        <mat-label>عنوان البريد الإلكتروني</mat-label>
+                        <input matInput  [(ngModel)]="order.client_mail" name="mail" required>
+                      </mat-form-field><br-->
 
-              <mat-form-field appearance="outline" style="width: 360px;">
-                <mat-label>الكمية</mat-label>
-                <mat-select  [(ngModel)]="Qte" name="choice" required>
-                  <mat-option *ngFor="let val of choice"  [value]="val.val">{{val.select}}</mat-option>
-                </mat-select>
-              </mat-form-field><br>
-                <mat-form-field appearance="outline" style="width: 360px;">
-                  <mat-label>الإسم</mat-label>
-                  <input matInput [(ngModel)]="order.client_name" name="name" required>
-                </mat-form-field><br>
-                <mat-form-field appearance="outline" style="width: 360px;">
-                  <mat-label>رقم الهاتف</mat-label>
-                  <input matInput  [(ngModel)]="order.client_tel" name="tel" required>
-                </mat-form-field><br>
-                <!--mat-form-field appearance="outline" style="width: 500px;">
-                  <mat-label>عنوان البريد الإلكتروني</mat-label>
-                  <input matInput  [(ngModel)]="order.client_mail" name="mail" required>
-                </mat-form-field><br-->
+                      <!--mat-form-field appearance="outline" style="width: 500px;">
+                        <mat-label>عنوان التسليم</mat-label>
+                        <input matInput  [(ngModel)]="order.client_adress" name="addresse" required>
+                      </mat-form-field><br-->
 
-                <!--mat-form-field appearance="outline" style="width: 500px;">
-                  <mat-label>عنوان التسليم</mat-label>
-                  <input matInput  [(ngModel)]="order.client_adress" name="addresse" required>
-                </mat-form-field><br-->
+                      <mat-form-field appearance="outline" style="width: 360px;">
+                        <mat-label>المدينة</mat-label>
+                        <mat-select  [(ngModel)]="order.city" name="Category" required>
+                          <mat-option *ngFor="let val of villes"  [value]="val">{{val}}</mat-option>
+                        </mat-select>
+                      </mat-form-field><br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-                <mat-form-field appearance="outline" style="width: 360px;">
-                  <mat-label>المدينة</mat-label>
-                  <mat-select  [(ngModel)]="order.city" name="Category" required>
-                    <mat-option *ngFor="let val of villes"  [value]="val">{{val}}</mat-option>
-                  </mat-select>
-                </mat-form-field><br>
+
+
 
               <section class="elementor-section elementor-top-section elementor-element elementor-element-08191c5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="08191c5" data-element_type="section">
                 <div class="elementor-container elementor-column-gap-default">
@@ -516,13 +543,14 @@
                       <div class="elementor-element elementor-element-43dce29 elementor-align-center elementor-widget elementor-widget-button" data-id="43dce29" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                           <div class="elementor-button-wrapper">
-                            <a (click)="command()"  class="elementor-button-link elementor-button elementor-size-xl" role="button">
+
+                            <button (click)="!orderForm.invalid && command()" *ngIf="!orderForm.invalid || btnstatus"  class="elementor-button-link elementor-button elementor-size-xl">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon elementor-align-icon-left">
 				<i aria-hidden="true" class="fas fa-truck"></i>			</span>
 						<span class="elementor-button-text">أطلب الآن</span>
-		</span>
-                            </a>
+	                	</span>
+                            </button>
                           </div>
                         </div>
                       </div>

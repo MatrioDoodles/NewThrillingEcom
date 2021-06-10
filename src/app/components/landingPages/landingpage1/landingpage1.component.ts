@@ -28,6 +28,7 @@ export class Landingpage1Component implements OnInit {
   product:Product;
   showloader=false
   Qte:number;
+  btnstatus:boolean = false;
   orderPP:OrderProduct;
   villes: string[] =  [
     'AGADIR', 'BENI MELLAL', 'BERKANE', 'CASABLANCA', 'ELJADIDA', 'FES', 'INEZGANE', 'KENITRA', 'KHEMISSET', 'KHENIFRA',
@@ -49,6 +50,7 @@ export class Landingpage1Component implements OnInit {
   ref: DynamicDialogRef;
 
   ngOnInit(): void {
+
     this.productService.getProductById(3).subscribe(
       (data:Product) => {
         this.product = data;
@@ -61,9 +63,23 @@ export class Landingpage1Component implements OnInit {
   }
 
   command(){
+    this.btnstatus = false;
 this.showloader = true
-          this.order.total = this.product.selling_price_HT * this.Qte;
-    this.order.total_to_pay = this.product.selling_price_HT * this.Qte;
+    if(this.Qte === 1) {
+      this.order.total = 399
+      this.order.total_to_pay = 399
+    }
+    else if (this.Qte === 2)
+    {
+      this.order.total = 649
+      this.order.total_to_pay = 649
+
+    }
+    else {
+      this.order.total = 800
+      this.order.total_to_pay = 800
+    }
+
     this.OrderService.AddOrder(this.order).subscribe(
       (response:Order) => {
         this.orderResp = response;
@@ -82,7 +98,8 @@ this.showloader = true
              setTimeout(() => {this.ref = this.dialogService.open(ThankYouPopupComponent, {
                header: 'تم إكمال الطلب بنجاح',
                width: '80%',
-             });},1000)
+             });})
+              this.btnstatus = true;
             }
     )
   })
