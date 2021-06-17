@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <div *ngIf="showloader" class="dimPage">
-    <div class="d-flex justify-content-center">
-      <div class="spinner-border" role="status" >
-        <span class="sr-only" id="loading"></span>
-      </div>
-    </div>
-  </div>
+
   <meta charset="UTF-8">
   <title>Landing Page &#8211; NewThrilling</title>
   <meta name='robots' content='max-image-preview:large' />
@@ -545,6 +539,11 @@
                           <div class="elementor-button-wrapper">
 
                             <button (click)="!orderForm.invalid && command()" *ngIf="!orderForm.invalid || btnstatus"  class="elementor-button-link elementor-button elementor-size-xl">
+                              <div *ngIf="showloader" class="dimPage">
+                                <p-progressSpinner style="position: absolute;
+                                left: 50%;
+                                top: 50%;"></p-progressSpinner>
+                              </div>
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon elementor-align-icon-left">
 				<i aria-hidden="true" class="fas fa-truck"></i>			</span>

@@ -64,7 +64,8 @@ export class Landingpage1Component implements OnInit {
 
   command(){
     this.btnstatus = false;
-this.showloader = true
+    this.showloader = true
+    console.log(this.order);
     if(this.Qte === 1) {
       this.order.total = 399
       this.order.total_to_pay = 399
@@ -95,10 +96,10 @@ this.showloader = true
           this.OrderService.order(this.OrdertoSub).subscribe(
             data => {
               this.showloader = false
-             setTimeout(() => {this.ref = this.dialogService.open(ThankYouPopupComponent, {
+            this.ref = this.dialogService.open(ThankYouPopupComponent, {
                header: 'تم إكمال الطلب بنجاح',
                width: '80%',
-             });})
+             });
               this.btnstatus = true;
             }
     )
